@@ -4,7 +4,7 @@
         <div v-for="(article, index) in articles" :key="index">
             <div class="latestBox__articles__article">
                 <span class="latestBox__articles__number">{{index + 1}}.</span>
-                <a :href="article.url" class="latestBox__articles__link">{{article.title}} {{article.views}}</a>
+                <a :href="article.url" class="latestBox__articles__link">{{article.title}}</a>
             </div>
         </div>
     </div>
