@@ -1,5 +1,5 @@
 <template>
-    <div class="latestBox col-12 col-md-6 offset-md-3">
+    <div class="latestBox col-12 col-md-6 offset-md-3 col-xl-4 offset-xl-4">
         <h3 class="latestBox__header">
             Najčítanejšie
             <div class="latestBox__nav">
