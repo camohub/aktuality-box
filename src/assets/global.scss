@@ -1,0 +1,14 @@
+html, body {
+    background-color: $black;
+}
+
+    
+
+a, a:active, a:visited, a:link {
+    color: $dakr-white;
+    text-decoration: none;
+
+    &:hover {
+        color: $white;
+    }
+}
