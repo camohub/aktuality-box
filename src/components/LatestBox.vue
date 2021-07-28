@@ -8,6 +8,8 @@
                 <a href="#" @click.prevent="loadSevenDaysNews(); toggleActiveClass($event)" class="latestBox--navLinks">7d</a>
             </div>
         </h3>
+
+        <div v-if="error" @click="error = false" class="alert alert-danger">Pri načítavaní došlo k chybe.</div>
         
         <latest-box-articles :articles="currentArticles" :loading="loading" />
 
@@ -39,6 +41,8 @@ export default {
             links: null,
 
             loading: false,
+
+            error: false,
         }
     },
 
@@ -71,17 +75,18 @@ export default {
                 this.loading = true;
 
                 axios.get( apiUrls.ONE_DAY_ARTICLES ).then((result) => {
-                    console.log(result.data.items);
+                    //console.log(result.data.items);
                     this.oneDayNews = result.data?.items;
                     this.currentArticles = this.oneDayNews;
                 }).catch((result) => {
-                    console.log(result);
+                    this.error = true;
                 }).then(() => { 
                     this.loading = false;
                 });
             }
             else
             {
+                this.error = false;
                 this.currentArticles = this.oneDayNews;
             }
         },
@@ -89,24 +94,22 @@ export default {
         loadThreeDaysNews() {
             if( !this.checkDay() || !this.threeDaysNews?.length )
             {
-                console.log('three');
-                console.log(this.checkDay());
-                console.log(this.threeDaysNews);
                 this.setCurrentDay();
                 this.loading = true;
                 
                 axios.get( apiUrls.THREE_DAYS_ARTICLES ).then((result) => {
-                    console.log(result.data.items);
+                    //console.log(result.data.items);
                     this.threeDaysNews = result.data?.items;
                     this.currentArticles = this.threeDaysNews;
                 }).catch((result) => {
-                    console.log(result);
+                    this.error = true;
                 }).then(() => { 
                     this.loading = false; 
                 });
             }
             else
             {
+                this.error = false;
                 this.currentArticles = this.threeDaysNews;
             }
         },
@@ -114,24 +117,22 @@ export default {
         loadSevenDaysNews() {
             if( !this.checkDay() || !this.sevenDaysNews?.length )
             {
-                console.log('three');
-                console.log(this.checkDay());
-                console.log(this.sevenDaysNews);
                 this.setCurrentDay();
                 this.loading = true;
                 
                 axios.get( apiUrls.SEVEN_DAYS_ARTICLES ).then((result) => {
-                    console.log(result.data.items);
+                    //console.log(result.data.items);
                     this.sevenDaysNews = result.data?.items;
                     this.currentArticles = this.sevenDaysNews;
                 }).catch((result) => {
-                    console.log(result);
+                    this.error = true;
                 }).then(() => { 
                     this.loading = false; 
                 });
             }
             else
             {
+                this.error = false;
                 this.currentArticles = this.sevenDaysNews;
             }
         },
