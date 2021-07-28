@@ -1,6 +1,9 @@
 <template>
-  <div class="page">
-  </div>
+    <div class="container-fluid">
+        <div class="row">
+            <latest-box />
+        </div>
+    </div>
 </template>
 
 <script>
@@ -9,8 +12,15 @@ import LatestBox from '@/components/LatestBox.vue'
 
 export default {
     name: 'Page 2',
+
+    data() {
+        return {
+            
+        }
+    },
+
     components: {
-        LatestBox
-    }
+        LatestBox,
+    },
 }
 </script>

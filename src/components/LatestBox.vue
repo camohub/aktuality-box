@@ -78,6 +78,7 @@ export default {
                     //console.log(result.data.items);
                     this.oneDayNews = result.data?.items;
                     this.currentArticles = this.oneDayNews;
+                    this.error = false;
                 }).catch((result) => {
                     this.error = true;
                 }).then(() => { 
@@ -101,6 +102,7 @@ export default {
                     //console.log(result.data.items);
                     this.threeDaysNews = result.data?.items;
                     this.currentArticles = this.threeDaysNews;
+                    this.error = false;
                 }).catch((result) => {
                     this.error = true;
                 }).then(() => { 
@@ -124,6 +126,7 @@ export default {
                     //console.log(result.data.items);
                     this.sevenDaysNews = result.data?.items;
                     this.currentArticles = this.sevenDaysNews;
+                    this.error = false;
                 }).catch((result) => {
                     this.error = true;
                 }).then(() => { 
